@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: order-service
+server:
+  port: 19092
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:19090/eureka/
+
+# zipkin 설정
+management:
+  zipkin:
+    tracing:
+      endpoint: "http://localhost:9411/api/v2/spans" # zipkin 에서 정해져있는 엔드포인트임
+  tracing:
+    sampling:
+      probability: 1.0 # 전체 모든 값을 트레이싱 (기본값 0.1)
